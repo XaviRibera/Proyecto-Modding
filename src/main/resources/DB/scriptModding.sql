@@ -1,38 +1,32 @@
 CREATE DATABASE modding;
 USE modding;
 
-INSERT INTO propietario (nombre, direccion, telefono)
-VALUES 
-    ('Juan Pérez', 'Calle 123, Ciudad XYZ', 123456789),
-    ('María Rodríguez', 'Avenida ABC, Ciudad XYZ', 987654321),
-    ('Ana Gómez', 'Carrera 456, Ciudad XYZ', 111222333),
-    ('Carlos Martínez', 'Calle 789, Ciudad XYZ', 444555666);
+CREATE TABLE propietario (
+    id_propietario INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(50),
+    direccion VARCHAR(100),
+    telefono VARCHAR(15) 
+);
 
-INSERT INTO coche (modelo, marca, velocidad_maxima, id_propietario)
-VALUES
-    ('Sedán', 'Toyota', 200, 1),
-    ('Deportivo', 'Ferrari', 350, 2),
-    ('SUV', 'Jeep', 180, 1),
-    ('Compacto', 'Honda', 180, 3),
-    ('Camioneta', 'Ford', 220, 4);
+CREATE TABLE coche (
+    id_coche INT PRIMARY KEY AUTO_INCREMENT,
+    modelo VARCHAR(50),
+    marca VARCHAR(50),
+    velocidad_maxima INT,
+    id_propietario INT,
+    FOREIGN KEY (id_propietario) REFERENCES propietario(id_propietario)
+);
 
-INSERT INTO modificacion (nombre_modificacion, velocidad)
-VALUES
-    ('Tubo de escape',15),
-    ('Alerón',20),
-    ('Suspensión deportiva',15),
-    ('Llantas de aleación',5),
-    ('Frenos mejorados',0),
-    ('Kit de carrocería',3);
+CREATE TABLE modificacion (
+    id_modificacion INT PRIMARY KEY AUTO_INCREMENT,
+    nombre_modificacion VARCHAR(50),
+    velocidad INT
+);
 
-INSERT INTO coche_modificacion (id_coche, id_modificacion)
-VALUES
-    (1, 1),
-    (1, 3),
-    (2, 2),
-    (3, 1),
-    (3, 3),
-    (4, 4),
-    (4, 5),
-    (5, 5),
-    (5, 6);
+CREATE TABLE coche_modificacion (
+    id_coche INT,
+    id_modificacion INT,
+    PRIMARY KEY (id_coche, id_modificacion),
+    FOREIGN KEY (id_coche) REFERENCES coche(id_coche),
+    FOREIGN KEY (id_modificacion) REFERENCES modificacion(id_modificacion)
+);

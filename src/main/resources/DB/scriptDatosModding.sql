@@ -2,10 +2,10 @@ USE modding;
 
 INSERT INTO propietario (nombre, direccion, telefono)
 VALUES 
-    ('Juan Pérez', 'Calle 123, Ciudad XYZ', '+34 123 456 789'),
-    ('María Rodríguez', 'Avenida ABC, Ciudad XYZ', '+34 987 654 321'),
-    ('Ana Gómez', 'Carrera 456, Ciudad XYZ', '+34 111 222 333'),
-    ('Carlos Martínez', 'Calle 789, Ciudad XYZ', '+34 444 555 666');
+    ('Juan Pérez', 'Calle 123, Ciudad XYZ', 123456789),
+    ('María Rodríguez', 'Avenida ABC, Ciudad XYZ', 987654321),
+    ('Ana Gómez', 'Carrera 456, Ciudad XYZ', 111222333),
+    ('Carlos Martínez', 'Calle 789, Ciudad XYZ', 444555666);
 
 INSERT INTO coche (modelo, marca, velocidad_maxima, id_propietario)
 VALUES
@@ -15,14 +15,14 @@ VALUES
     ('Compacto', 'Honda', 180, 3),
     ('Camioneta', 'Ford', 220, 4);
 
-INSERT INTO modificacion (nombre_modificacion)
+INSERT INTO modificacion (nombre_modificacion, velocidad)
 VALUES
-    ('Tubo de escape'),
-    ('Alerón'),
-    ('Suspensión deportiva'),
-    ('Llantas de aleación'),
-    ('Frenos mejorados'),
-    ('Kit de carrocería');
+    ('Tubo de escape',15),
+    ('Alerón',20),
+    ('Suspensión deportiva',15),
+    ('Llantas de aleación',5),
+    ('Frenos mejorados',0),
+    ('Kit de carrocería',3);
 
 INSERT INTO coche_modificacion (id_coche, id_modificacion)
 VALUES
