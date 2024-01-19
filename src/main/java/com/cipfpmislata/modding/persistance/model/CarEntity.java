@@ -29,7 +29,7 @@ import lombok.Setter;
 public class CarEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "coche_id")
+    @Column(name = "id_coche")
     int id;
 
     @Column(name = "modelo")
@@ -51,5 +51,5 @@ public class CarEntity {
         joinColumns = @JoinColumn(name = "id_coche"),
         inverseJoinColumns = @JoinColumn(name = "id_modificacion")
     )
-    List<CarEntity> modifications;
+    List<ModificationEntity> modifications;
 }
