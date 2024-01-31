@@ -20,7 +20,7 @@ import com.cipfpmislata.modding.controller.model.car.CarDetailWeb;
 import com.cipfpmislata.modding.controller.model.car.CarListWeb;
 import com.cipfpmislata.modding.domain.model.Car;
 import com.cipfpmislata.modding.domain.service.CarService;
-import com.cipfpmislata.modding.http_response.Response;
+import com.cipfpmislata.modding.http.response.Response;
 
 @RequestMapping("/cars")
 @RestController

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.cipfpmislata.modding.persistance.mapper.OwnerMapperPersistance;
 import com.cipfpmislata.modding.domain.model.Owner;
@@ -42,5 +43,11 @@ public class OwnerRepositoryImpl implements OwnerRepository{
     @Override
     public Optional<Owner> findById(int id){
         return Optional.of(OwnerMapperPersistance.toOwner(ownerDAO.findById(id).get()));
+    }
+
+    @Override
+    @Transactional
+    public Owner save(Owner owner){
+        return OwnerMapperPersistance.toOwner(ownerDAO.save(OwnerMapperPersistance.toOwnerEntity(owner)));
     }
 }

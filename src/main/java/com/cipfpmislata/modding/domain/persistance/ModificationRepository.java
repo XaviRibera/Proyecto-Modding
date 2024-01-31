@@ -9,4 +9,6 @@ public interface ModificationRepository {
     List<Modification> getAll(Integer page, Integer pageSize);
     long getTotalNumberOfRecords();
     Optional<Modification> findById(int id);
+    Modification save(Modification modification);
+    Modification update(Modification modification);
 }

@@ -9,4 +9,5 @@ public interface ModificationService {
     List<Modification> getAll(int page, int pageSIze);
     long getTotalNumberOfRecords();
     Modification findById(int id);
+    Modification save(Modification modification);
 }

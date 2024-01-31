@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.cipfpmislata.modding.domain.model.Modification;
 import com.cipfpmislata.modding.domain.persistance.ModificationRepository;
@@ -42,5 +43,17 @@ public class ModificationRespositoryImpl implements ModificationRepository{
     @Override
     public Optional<Modification> findById(int id){
         return Optional.of(ModificationMapperPersistance.toModification(modificationDAO.findById(id).get()));
+    }
+
+    @Override
+    @Transactional
+    public Modification save(Modification modification){
+        return ModificationMapperPersistance.toModification(modificationDAO.save(ModificationMapperPersistance.tModificationEntity(modification)));
+    }
+
+    @Override
+    @Transactional
+    public Modification update(Modification modification){
+        return ModificationMapperPersistance.toModification(modificationDAO.save(ModificationMapperPersistance.tModificationEntity(modification)));
     }
 }

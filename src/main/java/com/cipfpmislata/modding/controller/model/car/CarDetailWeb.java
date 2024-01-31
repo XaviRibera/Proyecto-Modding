@@ -20,5 +20,5 @@ public class CarDetailWeb {
     String brand;
     int maxSpeed;
     OwnerListWeb ownerListWeb;
-    List<ModificationListWeb> modificationsDetailWeb;
+    List<ModificationListWeb> modificationsListWeb;
 }

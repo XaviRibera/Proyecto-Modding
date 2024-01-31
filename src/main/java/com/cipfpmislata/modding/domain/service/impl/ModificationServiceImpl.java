@@ -34,4 +34,9 @@ public class ModificationServiceImpl implements ModificationService{
     public Modification findById(int id){
         return modificationRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Modificacion no encontrado con el id: " + id));
     }
+
+    @Override
+    public Modification save(Modification modification){
+        return modificationRepository.save(modification);
+    }
 }

@@ -12,8 +12,6 @@ import com.cipfpmislata.modding.domain.persistance.CarRepository;
 import com.cipfpmislata.modding.domain.persistance.ModificationRepository;
 import com.cipfpmislata.modding.domain.persistance.OwnerRepository;
 import com.cipfpmislata.modding.domain.service.CarService;
-import com.cipfpmislata.modding.domain.service.ModificationService;
-import com.cipfpmislata.modding.domain.service.OwnerService;
 import com.cipfpmislata.modding.exception.ResourceNotFoundException;
 
 @Service

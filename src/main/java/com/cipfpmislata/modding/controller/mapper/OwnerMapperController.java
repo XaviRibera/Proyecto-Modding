@@ -1,5 +1,6 @@
 package com.cipfpmislata.modding.controller.mapper;
 
+import com.cipfpmislata.modding.controller.model.owner.OwnerCreateWeb;
 import com.cipfpmislata.modding.controller.model.owner.OwnerDetailWeb;
 import com.cipfpmislata.modding.controller.model.owner.OwnerListWeb;
 import com.cipfpmislata.modding.domain.model.Owner;
@@ -31,5 +32,19 @@ public class OwnerMapperController {
         ownerDetailWeb.setPhone(owner.getPhone());
 
         return ownerDetailWeb;
+    }
+
+    public static Owner toOwner(OwnerCreateWeb ownerCreateWeb){
+        if(ownerCreateWeb == null){
+            return null;
+        }
+
+        Owner owner = new Owner();
+
+        owner.setName(ownerCreateWeb.getName());
+        owner.setAddress(ownerCreateWeb.getAddress());
+        owner.setPhone(ownerCreateWeb.getPhone());
+
+        return owner;
     }
 }

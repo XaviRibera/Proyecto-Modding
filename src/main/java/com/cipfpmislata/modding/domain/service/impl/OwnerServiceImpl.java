@@ -35,4 +35,9 @@ public class OwnerServiceImpl implements OwnerService{
     public Owner findById(int id){
         return ownerRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Propietario no encontrado con el id: " + id));
     }
+
+    @Override
+    public Owner save(Owner owner){
+        return ownerRepository.save(owner);
+    }
 }

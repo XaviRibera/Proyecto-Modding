@@ -9,4 +9,5 @@ public interface OwnerRepository {
     List<Owner> getAll(Integer page, Integer pageSize);
     Optional<Owner> findById(int id);
     long getTotalNumberOfRecords();
+    Owner save(Owner owner);
 }

@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -13,11 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 
 import com.cipfpmislata.modding.controller.mapper.OwnerMapperController;
+import com.cipfpmislata.modding.controller.model.owner.OwnerCreateWeb;
 import com.cipfpmislata.modding.controller.model.owner.OwnerDetailWeb;
 import com.cipfpmislata.modding.controller.model.owner.OwnerListWeb;
 import com.cipfpmislata.modding.domain.model.Owner;
 import com.cipfpmislata.modding.domain.service.OwnerService;
-import com.cipfpmislata.modding.http_response.Response;
+import com.cipfpmislata.modding.http.response.Response;
 
 @RequestMapping("/owners")
 @RestController
@@ -43,8 +46,20 @@ public class OwnerController {
                 .build();
     }
 
+    @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
-    public OwnerDetailWeb findById(@PathVariable("id") int id){
-        return OwnerMapperController.toOwnerDetailWeb(ownerService.findById(id));
+    public Response findById(@PathVariable("id") int id){
+        return Response.builder()
+                        .data(OwnerMapperController.toOwnerDetailWeb(ownerService.findById(id)))
+                        .build();
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @PostMapping("")
+    public Response save(@RequestBody OwnerCreateWeb ownerCreateWeb){
+        OwnerDetailWeb ownerDetailWeb = OwnerMapperController.toOwnerDetailWeb(ownerService.save(OwnerMapperController.toOwner(ownerCreateWeb)));
+        return Response.builder()
+                        .data(ownerDetailWeb)
+                        .build();
     }
 }

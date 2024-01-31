@@ -20,7 +20,7 @@ import com.cipfpmislata.modding.controller.model.modification.ModificationDetail
 import com.cipfpmislata.modding.controller.model.modification.ModificationListWeb;
 import com.cipfpmislata.modding.domain.model.Modification;
 import com.cipfpmislata.modding.domain.service.ModificationService;
-import com.cipfpmislata.modding.http_response.Response;
+import com.cipfpmislata.modding.http.response.Response;
 
 @RequestMapping("/mods")
 @RestController
@@ -55,11 +55,11 @@ public class ModificationController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @PostMapping("/")
+    @PostMapping("")
     public Response save(@RequestBody ModificationCreateWeb modificationCreateWeb){
-        ModificationDetailWeb modificationDetailWeb = new ModificationDetailWeb();
+        ModificationDetailWeb modificationDetailWeb = ModificationMapperController.toModificationDetailWeb(modificationService.save(ModificationMapperController.toModification(modificationCreateWeb)));
         return Response.builder()
-                        .data(null)
+                        .data(modificationDetailWeb)
                         .build();
     }
 }
