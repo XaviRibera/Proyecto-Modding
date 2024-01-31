@@ -63,19 +63,4 @@ public class CarMapperController {
 
         return car;
     }
-
-    public static CarDetailWeb(CarCreateWeb carCreateWeb){
-        if(carCreateWeb == null){
-            return null;
-        }
-
-        CarDetailWeb carDetailWeb = new CarDetailWeb();
-
-        carDetailWeb.setBrand(carCreateWeb.getBrand());
-        carDetailWeb.setModel(carCreateWeb.getModel());
-        carDetailWeb.setMaxSpeed(carCreateWeb.getMaxSpeed());
-        carDetailWeb.set
-
-        return carDetailWeb;
-    }
 }

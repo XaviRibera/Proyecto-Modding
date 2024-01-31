@@ -7,12 +7,16 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cipfpmislata.modding.controller.mapper.ModificationMapperController;
+import com.cipfpmislata.modding.controller.model.modification.ModificationCreateWeb;
+import com.cipfpmislata.modding.controller.model.modification.ModificationDetailWeb;
 import com.cipfpmislata.modding.controller.model.modification.ModificationListWeb;
 import com.cipfpmislata.modding.domain.model.Modification;
 import com.cipfpmislata.modding.domain.service.ModificationService;
@@ -43,10 +47,19 @@ public class ModificationController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public Response findById(@PathVariable("id") int id){
         return Response.builder()
                         .data(ModificationMapperController.toModificationDetailWeb(modificationService.findById(id)))
+                        .build();
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @PostMapping("/")
+    public Response save(@RequestBody ModificationCreateWeb modificationCreateWeb){
+        ModificationDetailWeb modificationDetailWeb = new ModificationDetailWeb();
+        return Response.builder()
+                        .data(null)
                         .build();
     }
 }
