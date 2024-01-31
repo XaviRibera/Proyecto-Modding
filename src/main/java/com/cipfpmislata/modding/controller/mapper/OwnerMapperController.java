@@ -1,10 +1,11 @@
 package com.cipfpmislata.modding.controller.mapper;
 
+import com.cipfpmislata.modding.controller.model.owner.OwnerDetailWeb;
 import com.cipfpmislata.modding.controller.model.owner.OwnerListWeb;
 import com.cipfpmislata.modding.domain.model.Owner;
 
 public class OwnerMapperController {
-    public static OwnerListWeb toOwnerListWeb(Owner owner){
+    public OwnerListWeb toOwnerListWeb(Owner owner){
         if(owner == null){
             return null;
         }
@@ -15,5 +16,9 @@ public class OwnerMapperController {
         ownerListWeb.setPhone(owner.getPhone());
 
         return ownerListWeb;
+    }
+
+    public OwnerDetailWeb toOwnerDetailWeb(Owner owner){
+
     }
 }

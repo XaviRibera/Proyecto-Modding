@@ -4,7 +4,7 @@ import com.cipfpmislata.modding.domain.model.Car;
 import com.cipfpmislata.modding.persistance.model.CarEntity;
 
 public class CarMapperPersistance {
-    
+
     public static Car toCar(CarEntity carEntity){
 
         if(carEntity == null){

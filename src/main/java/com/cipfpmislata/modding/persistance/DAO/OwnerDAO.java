@@ -10,4 +10,5 @@ import com.cipfpmislata.modding.persistance.model.OwnerEntity;
 @Repository
 public interface OwnerDAO extends JpaRepository<OwnerEntity,Integer> {
     List<OwnerEntity> findAll();
+    OwnerEntity findById(int id);
 }

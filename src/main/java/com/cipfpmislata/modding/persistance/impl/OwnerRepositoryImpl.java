@@ -1,6 +1,7 @@
 package com.cipfpmislata.modding.persistance.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -27,5 +28,10 @@ public class OwnerRepositoryImpl implements OwnerRepository{
                         .toList();
 
         return owners;
+    }
+
+    @Override
+    public Optional<Owner> findById(int id){
+        return Optional.of(OwnerMapperPersistance.toOwner(ownerDAO.findById(id)));
     }
 }
