@@ -6,6 +6,7 @@ import java.util.Optional;
 import com.cipfpmislata.modding.domain.model.Owner;
 
 public interface OwnerRepository {
-    List<Owner> getAll();
+    List<Owner> getAll(Integer page, Integer pageSize);
     Optional<Owner> findById(int id);
+    long getTotalNumberOfRecords();
 }

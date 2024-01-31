@@ -18,11 +18,21 @@ public class OwnerServiceImpl implements OwnerService{
 
     @Override
     public List<Owner> getAll(){
-        return ownerRepository.getAll();
+        return ownerRepository.getAll(null,null);
+    }
+
+    @Override
+    public List<Owner> getAll(int page, int pageSize){
+        return ownerRepository.getAll(page, pageSize);
+    }
+
+    @Override
+    public long getTotalNumberOfRecords(){
+        return ownerRepository.getTotalNumberOfRecords();
     }
 
     @Override
     public Owner findById(int id){
-        return ownerRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Pelicula no encontrado con el titulo: " + id));
+        return ownerRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Propietario no encontrado con el id: " + id));
     }
 }

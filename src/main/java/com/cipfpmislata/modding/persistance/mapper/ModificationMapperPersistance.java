@@ -17,4 +17,18 @@ public class ModificationMapperPersistance {
 
         return modification;
     }
+
+    public static ModificationEntity tModificationEntity(Modification modification){
+        if(modification == null){
+            return null;
+        }
+
+        ModificationEntity modificationEntity = new ModificationEntity();
+
+        modificationEntity.setId(modification.getId());
+        modificationEntity.setName(modification.getName());
+        modificationEntity.setSpeed(modification.getSpeed());
+
+        return modificationEntity;
+    }
 }

@@ -6,5 +6,7 @@ import com.cipfpmislata.modding.domain.model.Owner;
 
 public interface OwnerService {
     List<Owner> getAll();
+    List<Owner> getAll(int page, int pageSize);
     Owner findById(int id);
+    long getTotalNumberOfRecords();
 }

@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import com.cipfpmislata.modding.persistance.mapper.OwnerMapperPersistance;
@@ -19,19 +21,26 @@ public class OwnerRepositoryImpl implements OwnerRepository{
     private OwnerDAO ownerDAO;
 
     @Override
-    public List<Owner> getAll(){
+    public List<Owner> getAll(Integer page, Integer pageSize){
+        List<OwnerEntity> ownerEntities;
+        if(page != null && page > 0){
+            Pageable pageable = PageRequest.of(page -1, pageSize);
+            ownerEntities = ownerDAO.findAll(pageable).stream().toList();
+        }else{
+            ownerEntities = ownerDAO.findAll();
+        }
+        return ownerEntities.stream()
+                            .map(ownerEntity -> OwnerMapperPersistance.toOwner(ownerEntity))
+                            .toList();
+    }
 
-        List<OwnerEntity> ownerEntities = ownerDAO.findAll();
-
-        List<Owner> owners = ownerEntities.stream()
-                        .map(ownerEntity -> OwnerMapperPersistance.toOwner(ownerEntity))
-                        .toList();
-
-        return owners;
+    @Override
+    public long getTotalNumberOfRecords(){
+        return ownerDAO.count();
     }
 
     @Override
     public Optional<Owner> findById(int id){
-        return Optional.of(OwnerMapperPersistance.toOwner(ownerDAO.findById(id)));
+        return Optional.of(OwnerMapperPersistance.toOwner(ownerDAO.findById(id).get()));
     }
 }

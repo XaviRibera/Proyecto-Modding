@@ -18,4 +18,19 @@ public class OwnerMapperPersistance {
 
         return owner;
     }
+
+    public static OwnerEntity toOwnerEntity(Owner owner){
+        if(owner == null){
+            return null;
+        }
+
+        OwnerEntity ownerEntity = new OwnerEntity();
+
+        ownerEntity.setId(owner.getId());
+        ownerEntity.setName(owner.getName());
+        ownerEntity.setAddress(owner.getAddress());
+        ownerEntity.setPhone(owner.getPhone());
+
+        return ownerEntity;
+    }
 }
