@@ -47,6 +47,12 @@ public class ModificationRespositoryImpl implements ModificationRepository{
 
     @Override
     @Transactional
+    public void delete(int id){
+        modificationDAO.deleteById(id);
+    }
+
+    @Override
+    @Transactional
     public Modification save(Modification modification){
         return ModificationMapperPersistance.toModification(modificationDAO.save(ModificationMapperPersistance.tModificationEntity(modification)));
     }
