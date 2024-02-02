@@ -52,7 +52,22 @@ public class CarServiceImpl implements CarService{
                                                                 .map(modificationId -> modificationRepository.findById(modificationId).orElseThrow(() -> new ResourceNotFoundException("Modificacion no encontrado con el id: " + modificationId)))
                                                                 .toList();
         car.setModifications(modifications);
-        Optional<Car> carResult = carRepository.save(car);
-        return carResult.orElseThrow(() -> new ResourceNotFoundException("Coche no encontrado con el id: " + carResult.get().getId()));
+        return carRepository.save(car);
+    }
+
+    @Override
+    public Car update(Car car, int id, int ownerId, List<Integer> modificationIdList){
+        car.setId(id);
+        car.setOwner(ownerRepository.findById(ownerId).orElseThrow(() -> new ResourceNotFoundException("Propietario no encontrado con el id: " + ownerId)));
+        List<Modification> modifications = modificationIdList.stream()
+                                                                .map(modificationId -> modificationRepository.findById(modificationId).orElseThrow(() -> new ResourceNotFoundException("Modificacion no encontrado con el id: " + modificationId)))
+                                                                .toList();
+        car.setModifications(modifications);
+        return carRepository.update(car);
+    }
+
+    @Override
+    public void delete(int id){
+        carRepository.delete(id);
     }
 }

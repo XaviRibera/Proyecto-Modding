@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import com.cipfpmislata.modding.controller.model.car.CarCreateWeb;
 import com.cipfpmislata.modding.controller.model.car.CarDetailWeb;
 import com.cipfpmislata.modding.controller.model.car.CarListWeb;
+import com.cipfpmislata.modding.controller.model.car.CarUpdateWeb;
 import com.cipfpmislata.modding.controller.model.modification.ModificationListWeb;
 import com.cipfpmislata.modding.domain.model.Car;
 import com.cipfpmislata.modding.domain.model.Modification;
@@ -20,6 +21,7 @@ public class CarMapperController {
 
         CarListWeb carListWeb = new CarListWeb();
 
+        carListWeb.setId(car.getId());
         carListWeb.setBrand(car.getBrand());
         carListWeb.setModel(car.getModel());
 
@@ -60,6 +62,20 @@ public class CarMapperController {
         car.setBrand(carCreateWeb.getBrand());
         car.setModel(carCreateWeb.getModel());
         car.setMaxSpeed(carCreateWeb.getMaxSpeed());
+
+        return car;
+    }
+
+    public static Car toCar(CarUpdateWeb carUpdateWeb){
+        if(carUpdateWeb == null){
+            return null;
+        }
+
+        Car car = new Car();
+
+        car.setBrand(carUpdateWeb.getBrand());
+        car.setModel(carUpdateWeb.getModel());
+        car.setMaxSpeed(carUpdateWeb.getMaxSpeed());
 
         return car;
     }

@@ -1,16 +1,15 @@
-package com.cipfpmislata.modding.controller.model.owner;
+package com.cipfpmislata.modding.controller.model.modification;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@AllArgsConstructor
 @Getter
 @Setter
+@AllArgsConstructor
 @NoArgsConstructor
-public class OwnerListWeb {
-    int id;
+public class ModificationUpdateWeb {
     String name;
-    int phone;
+    int speed;
 }

@@ -56,4 +56,10 @@ public class OwnerRepositoryImpl implements OwnerRepository{
     public void delete(int id){
         ownerDAO.deleteById(id);
     }
+
+    @Override
+    @Transactional
+    public Owner update(Owner owner){
+        return OwnerMapperPersistance.toOwner(ownerDAO.save(OwnerMapperPersistance.toOwnerEntity(owner)));
+    }
 }

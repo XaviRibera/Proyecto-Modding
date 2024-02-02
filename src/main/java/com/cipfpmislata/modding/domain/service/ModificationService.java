@@ -10,4 +10,6 @@ public interface ModificationService {
     long getTotalNumberOfRecords();
     Modification findById(int id);
     Modification save(Modification modification);
+    Modification update(Modification modification, int id);
+    void delete(int id);
 }

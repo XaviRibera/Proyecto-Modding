@@ -10,5 +10,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class ModificationListWeb {
+    int id;
     String name;
 }

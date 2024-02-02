@@ -11,4 +11,5 @@ public interface OwnerRepository {
     long getTotalNumberOfRecords();
     Owner save(Owner owner);
     void delete(int id);
+    Owner update(Owner owner);
 }

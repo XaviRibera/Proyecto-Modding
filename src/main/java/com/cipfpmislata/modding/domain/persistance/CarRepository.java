@@ -9,5 +9,7 @@ public interface CarRepository {
     List<Car> getAll(Integer page, Integer pageSize);
     long getTotalNumberOfRecords();
     Optional<Car> findById(int id);
-    Optional<Car> save(Car car);
+    Car save(Car car);
+    Car update(Car car);
+    void delete(int id);
 }

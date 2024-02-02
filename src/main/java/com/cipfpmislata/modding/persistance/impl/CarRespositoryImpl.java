@@ -48,8 +48,19 @@ public class CarRespositoryImpl implements CarRepository{
 
     @Override
     @Transactional
-    public Optional<Car> save(Car car){
-        CarEntity carEntity = CarMapperPersistance.toCarEntity(car);
-        return Optional.of(CarMapperPersistance.toCar(carDAO.save(carEntity)));
+    public Car save(Car car){
+        return CarMapperPersistance.toCar(carDAO.save(CarMapperPersistance.toCarEntity(car)));
+    }
+
+    @Override
+    @Transactional
+    public Car update(Car car){
+        return CarMapperPersistance.toCar(carDAO.save(CarMapperPersistance.toCarEntity(car)));
+    }
+
+    @Override
+    @Transactional
+    public void delete(int id){
+        carDAO.deleteById(id);
     }
 }

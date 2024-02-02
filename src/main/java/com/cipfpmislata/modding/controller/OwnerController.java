@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +20,7 @@ import com.cipfpmislata.modding.controller.mapper.OwnerMapperController;
 import com.cipfpmislata.modding.controller.model.owner.OwnerCreateWeb;
 import com.cipfpmislata.modding.controller.model.owner.OwnerDetailWeb;
 import com.cipfpmislata.modding.controller.model.owner.OwnerListWeb;
+import com.cipfpmislata.modding.controller.model.owner.OwnerUpdateWeb;
 import com.cipfpmislata.modding.domain.model.Owner;
 import com.cipfpmislata.modding.domain.service.OwnerService;
 import com.cipfpmislata.modding.http.response.Response;
@@ -59,6 +61,15 @@ public class OwnerController {
     @PostMapping("")
     public Response save(@RequestBody OwnerCreateWeb ownerCreateWeb){
         OwnerDetailWeb ownerDetailWeb = OwnerMapperController.toOwnerDetailWeb(ownerService.save(OwnerMapperController.toOwner(ownerCreateWeb)));
+        return Response.builder()
+                        .data(ownerDetailWeb)
+                        .build();
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @PutMapping("/{id}")
+    public Response update(@RequestBody OwnerUpdateWeb ownerUpdateWeb, @PathVariable("id") int id){
+        OwnerDetailWeb ownerDetailWeb = OwnerMapperController.toOwnerDetailWeb(ownerService.update(OwnerMapperController.toOwner(ownerUpdateWeb),id));
         return Response.builder()
                         .data(ownerDetailWeb)
                         .build();

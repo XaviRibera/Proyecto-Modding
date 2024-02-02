@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +20,7 @@ import com.cipfpmislata.modding.controller.mapper.CarMapperController;
 import com.cipfpmislata.modding.controller.model.car.CarCreateWeb;
 import com.cipfpmislata.modding.controller.model.car.CarDetailWeb;
 import com.cipfpmislata.modding.controller.model.car.CarListWeb;
+import com.cipfpmislata.modding.controller.model.car.CarUpdateWeb;
 import com.cipfpmislata.modding.domain.model.Car;
 import com.cipfpmislata.modding.domain.service.CarService;
 import com.cipfpmislata.modding.http.response.Response;
@@ -61,5 +64,20 @@ public class CarController {
         return Response.builder()
                         .data(carDetailWeb)
                         .build();
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @PutMapping("{id}")
+    public Response update(@RequestBody CarUpdateWeb carUpdateWeb, @PathVariable("id") int id){
+        CarDetailWeb carDetailWeb = CarMapperController.toCarDetailWeb(carService.update(CarMapperController.toCar(carUpdateWeb), id, carUpdateWeb.getOwnerId(), carUpdateWeb.getModificationIdList()));
+        return Response.builder()
+                        .data(carDetailWeb)
+                        .build();
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") int id){
+        carService.delete(id);
     }
 }

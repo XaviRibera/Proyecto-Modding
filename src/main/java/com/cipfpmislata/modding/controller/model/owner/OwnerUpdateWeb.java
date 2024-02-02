@@ -6,11 +6,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-@NoArgsConstructor
-public class OwnerListWeb {
-    int id;
+public class OwnerUpdateWeb {
     String name;
+    String address;
     int phone;
 }

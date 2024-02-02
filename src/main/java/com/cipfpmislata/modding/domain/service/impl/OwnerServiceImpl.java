@@ -45,4 +45,10 @@ public class OwnerServiceImpl implements OwnerService{
     public void delete(int id){
         ownerRepository.delete(id);
     }
+
+    @Override
+    public Owner update(Owner owner, int id){
+        owner.setId(id);
+        return ownerRepository.update(owner);
+    }
 }

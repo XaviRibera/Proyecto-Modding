@@ -10,4 +10,6 @@ public interface CarService {
     long getTotalNumberOfRecords();
     Car findById(int id);
     Car save(Car car, int ownerId, List<Integer> modificationIdList);
+    Car update(Car car, int id, int ownerId, List<Integer> modificationIdList);
+    void delete(int id);
 }

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import com.cipfpmislata.modding.controller.model.modification.ModificationCreateWeb;
 import com.cipfpmislata.modding.controller.model.modification.ModificationDetailWeb;
 import com.cipfpmislata.modding.controller.model.modification.ModificationListWeb;
+import com.cipfpmislata.modding.controller.model.modification.ModificationUpdateWeb;
 import com.cipfpmislata.modding.domain.model.Modification;
 
 @Component
@@ -16,6 +17,7 @@ public class ModificationMapperController {
 
         ModificationListWeb modificationListWeb = new ModificationListWeb();
 
+        modificationListWeb.setId(modification.getId());
         modificationListWeb.setName(modification.getName());
 
         return modificationListWeb;
@@ -44,6 +46,19 @@ public class ModificationMapperController {
 
         modification.setName(modificationCreateWeb.getName());
         modification.setSpeed(modificationCreateWeb.getSpeed());
+
+        return modification;
+    }
+
+    public static Modification toModification(ModificationUpdateWeb modificationUpdateWeb){
+        if(modificationUpdateWeb == null){
+            return null;
+        }
+
+        Modification modification = new Modification();
+
+        modification.setName(modificationUpdateWeb.getName());
+        modification.setSpeed(modificationUpdateWeb.getSpeed());
 
         return modification;
     }

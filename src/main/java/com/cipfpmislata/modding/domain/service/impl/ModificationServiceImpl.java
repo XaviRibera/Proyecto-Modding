@@ -39,4 +39,15 @@ public class ModificationServiceImpl implements ModificationService{
     public Modification save(Modification modification){
         return modificationRepository.save(modification);
     }
+
+    @Override
+    public Modification update(Modification modification, int id){
+        modification.setId(id);
+        return modificationRepository.update(modification);
+    }
+
+    @Override
+    public void delete(int id){
+        modificationRepository.delete(id);
+    }
 }
