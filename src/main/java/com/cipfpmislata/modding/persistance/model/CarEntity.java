@@ -2,6 +2,7 @@ package com.cipfpmislata.modding.persistance.model;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -41,11 +42,11 @@ public class CarEntity {
     @Column(name = "velocidad_maxima")
     int maxSpeed;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_propietario")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, optional = true)
+    @JoinColumn(name = "id_propietario", nullable = true)
     OwnerEntity ownerEntity;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(
         name = "coche_modificacion",
         joinColumns = @JoinColumn(name = "id_coche"),

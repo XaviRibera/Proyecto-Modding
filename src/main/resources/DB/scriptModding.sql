@@ -14,7 +14,7 @@ CREATE TABLE coche (
     marca VARCHAR(50),
     velocidad_maxima INT,
     id_propietario INT,
-    FOREIGN KEY (id_propietario) REFERENCES propietario(id_propietario)
+    FOREIGN KEY (id_propietario) REFERENCES propietario(id_propietario) ON DELETE SET NULL
 );
 
 CREATE TABLE modificacion (

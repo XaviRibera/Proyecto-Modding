@@ -10,4 +10,5 @@ public interface OwnerService {
     Owner findById(int id);
     long getTotalNumberOfRecords();
     Owner save(Owner owner);
+    void delete(int id);
 }

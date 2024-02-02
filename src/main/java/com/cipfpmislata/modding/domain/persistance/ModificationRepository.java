@@ -11,4 +11,5 @@ public interface ModificationRepository {
     Optional<Modification> findById(int id);
     Modification save(Modification modification);
     Modification update(Modification modification);
+    void delete(int id);
 }

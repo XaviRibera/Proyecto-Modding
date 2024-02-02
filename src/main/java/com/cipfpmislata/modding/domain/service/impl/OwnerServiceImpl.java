@@ -40,4 +40,9 @@ public class OwnerServiceImpl implements OwnerService{
     public Owner save(Owner owner){
         return ownerRepository.save(owner);
     }
+
+    @Override
+    public void delete(int id){
+        ownerRepository.delete(id);
+    }
 }
