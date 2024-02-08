@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 
+import com.cipfpmislata.modding.common.http.response.Response;
 import com.cipfpmislata.modding.controller.mapper.CarMapperController;
 import com.cipfpmislata.modding.controller.model.car.CarCreateWeb;
 import com.cipfpmislata.modding.controller.model.car.CarDetailWeb;
@@ -23,7 +24,6 @@ import com.cipfpmislata.modding.controller.model.car.CarListWeb;
 import com.cipfpmislata.modding.controller.model.car.CarUpdateWeb;
 import com.cipfpmislata.modding.domain.model.Car;
 import com.cipfpmislata.modding.domain.service.CarService;
-import com.cipfpmislata.modding.http.response.Response;
 
 @RequestMapping("/cars")
 @RestController

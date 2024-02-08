@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cipfpmislata.modding.common.exception.ResourceNotFoundException;
 import com.cipfpmislata.modding.domain.model.Modification;
 import com.cipfpmislata.modding.domain.persistance.ModificationRepository;
 import com.cipfpmislata.modding.domain.service.ModificationService;
-import com.cipfpmislata.modding.exception.ResourceNotFoundException;
 
 @Service
 public class ModificationServiceImpl implements ModificationService{

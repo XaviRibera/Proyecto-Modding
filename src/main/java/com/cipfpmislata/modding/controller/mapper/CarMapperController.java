@@ -39,6 +39,7 @@ public class CarMapperController {
         carDetailWeb.setModel(car.getModel());
         carDetailWeb.setBrand(car.getBrand());
         carDetailWeb.setMaxSpeed(car.getMaxSpeed());
+        carDetailWeb.setMaxSpeedWithModifications(car.getMaxSpeedWithModifications());
         carDetailWeb.setOwnerListWeb(OwnerMapperController.toOwnerListWeb(car.getOwner()));
         carDetailWeb.setModificationsListWeb(mapModificationsToModificationsListWeb(car.getModifications()));
 

@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 
+import com.cipfpmislata.modding.common.http.response.Response;
 import com.cipfpmislata.modding.controller.mapper.OwnerMapperController;
 import com.cipfpmislata.modding.controller.model.owner.OwnerCreateWeb;
 import com.cipfpmislata.modding.controller.model.owner.OwnerDetailWeb;
@@ -23,7 +24,6 @@ import com.cipfpmislata.modding.controller.model.owner.OwnerListWeb;
 import com.cipfpmislata.modding.controller.model.owner.OwnerUpdateWeb;
 import com.cipfpmislata.modding.domain.model.Owner;
 import com.cipfpmislata.modding.domain.service.OwnerService;
-import com.cipfpmislata.modding.http.response.Response;
 
 @RequestMapping("/owners")
 @RestController

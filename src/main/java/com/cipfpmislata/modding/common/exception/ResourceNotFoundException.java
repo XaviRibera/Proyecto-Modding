@@ -1,4 +1,4 @@
-package com.cipfpmislata.modding.exception;
+package com.cipfpmislata.modding.common.exception;
 
 public class ResourceNotFoundException extends RuntimeException{
     private static final String DESCRIPTION = "Resource not found";

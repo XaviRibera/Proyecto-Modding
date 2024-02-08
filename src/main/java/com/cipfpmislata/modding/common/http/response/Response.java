@@ -1,4 +1,4 @@
-package com.cipfpmislata.modding.http.response;
+package com.cipfpmislata.modding.common.http.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

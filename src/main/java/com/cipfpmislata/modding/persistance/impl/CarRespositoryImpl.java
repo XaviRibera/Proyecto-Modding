@@ -7,14 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.cipfpmislata.modding.domain.model.Car;
 import com.cipfpmislata.modding.domain.persistance.CarRepository;
 import com.cipfpmislata.modding.persistance.DAO.CarDAO;
 import com.cipfpmislata.modding.persistance.mapper.CarMapperPersistance;
 import com.cipfpmislata.modding.persistance.model.CarEntity;
-
-import jakarta.transaction.Transactional;
 
 @Repository
 public class CarRespositoryImpl implements CarRepository{

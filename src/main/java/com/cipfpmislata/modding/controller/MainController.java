@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("/mods")
+@RequestMapping("/")
 @RestController
 public class MainController {
     @ResponseStatus(HttpStatus.OK)

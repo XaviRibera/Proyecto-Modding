@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cipfpmislata.modding.common.http.response.Response;
 import com.cipfpmislata.modding.controller.mapper.ModificationMapperController;
 import com.cipfpmislata.modding.controller.model.modification.ModificationCreateWeb;
 import com.cipfpmislata.modding.controller.model.modification.ModificationDetailWeb;
@@ -23,7 +24,6 @@ import com.cipfpmislata.modding.controller.model.modification.ModificationListWe
 import com.cipfpmislata.modding.controller.model.modification.ModificationUpdateWeb;
 import com.cipfpmislata.modding.domain.model.Modification;
 import com.cipfpmislata.modding.domain.service.ModificationService;
-import com.cipfpmislata.modding.http.response.Response;
 
 @RequestMapping("/mods")
 @RestController

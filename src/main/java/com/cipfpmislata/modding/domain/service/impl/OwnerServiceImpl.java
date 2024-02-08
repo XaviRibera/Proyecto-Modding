@@ -5,10 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cipfpmislata.modding.common.exception.ResourceNotFoundException;
 import com.cipfpmislata.modding.domain.model.Owner;
 import com.cipfpmislata.modding.domain.persistance.OwnerRepository;
 import com.cipfpmislata.modding.domain.service.OwnerService;
-import com.cipfpmislata.modding.exception.ResourceNotFoundException;
+
+import static com.cipfpmislata.modding.common.validation.Validation.validate;
 
 @Service
 public class OwnerServiceImpl implements OwnerService{
@@ -38,6 +40,7 @@ public class OwnerServiceImpl implements OwnerService{
 
     @Override
     public Owner save(Owner owner){
+        validate(owner);
         return ownerRepository.save(owner);
     }
 
@@ -48,6 +51,7 @@ public class OwnerServiceImpl implements OwnerService{
 
     @Override
     public Owner update(Owner owner, int id){
+        validate(owner);
         owner.setId(id);
         return ownerRepository.update(owner);
     }

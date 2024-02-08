@@ -19,6 +19,7 @@ public class CarDetailWeb {
     String model;
     String brand;
     int maxSpeed;
+    int maxSpeedWithModifications;
     OwnerListWeb ownerListWeb;
     List<ModificationListWeb> modificationsListWeb;
 }
